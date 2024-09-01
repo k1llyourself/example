@@ -1,19 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+// namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use App\Models\User;
+// use Illuminate\Http\Request;
 
-class RegisterController extends Controller
-{
-    public function index()
-    {
-        return view('register.index');
-    }
+// class RegisterController extends Controller
+// {
+//     public function index()
+//     {
+//         return view('register.index');
+//     }
 
+//     public function store(Request $request)
+//     {
+//         $validated = $request->validate([
+//             'username' => ['required', 'string', 'max:50', 'unique:users,username'],
+//             'password' => ['required', 'string', 'min:7', 'max:50', 'confirmed'],
+//         ]);
 
-    public function store()
-    {
-        return 'Запрос на реєстрацію';
-    }
-}
+//         $user = User::query()->create([
+//             'username' => $validated['username'],
+//             'password' => bcrypt($validated['password']),
+//         ]);
+       
+//         return redirect()->route('user.posts');
+//     }
+// }

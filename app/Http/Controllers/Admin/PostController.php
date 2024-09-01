@@ -7,36 +7,96 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+        $search = $request->input('search');
+        $category_id = $request->input('category_id');
 
-        return 'Сторінка списку постів';
+        $post = (object) [
+            'id' => 123,
+            'title' => 'Lorem, ipsum dolor.',
+            'content' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis?',
+            'price' => '38',
+            'category_id' => 1,
+        ];
+
+
+        $posts = array_fill(0, 10, $post);
+
+        return view('admin.posts.index', compact('posts'));
 
     }
 
     public function create(){
-        return 'Сторінка створення посту';
+        return view('admin.posts.create');
     }
 
-    public function store(){
-        return 'Запрос створення посту';
+    public function store(Request $request){
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:100'],
+            'content' => ['nullable', 'string', 'max:100'],
+            'price' => ['required', 'string'],
+
+        ]);
+
+        // Post::create($validated);   
+
+        // $validated = validator($request->all(),[
+        //     'title' => ['required', 'string', 'max:100'],
+        //     'content' => ['required', 'string', 'max:100']
+
+        // ])->validate();
+        dd($validated);
+        
+        // return 'Запрос створення посту';
+        return redirect()->route('admin.posts.show', 123);
+
     }
 
     public function show($post){
-        return "Сторінка перегляду посту {$post}";
+        
+        $post = (object) [
+            'id' => 123,
+            'title' => 'Lorem, ipsum dolor.',
+            'content' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis?',
+            'price' => '38',
+            'category_id' => 1,
+        ];
+
+
+        return view('admin.posts.show', compact('post'));
     }
 
     
     public function edit($post){
-        return "Сторінка зміни посту {$post}";
+        $post = (object) [
+            'id' => 123,
+            'title' => 'Lorem, ipsum dolor.',
+            'content' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis?',
+            'price' => '38',
+            'category_id' => 1,
+        ];
+        return view('admin.posts.edit', compact('post'));
     }
     
-    public function update(){
-        return 'Запрос зміни посту';
+    public function update(Request $request, $post){
+
+        // $title = $request -> input('title');
+        // $content = $request -> input('content');
+        // $content = $request -> input('price');
+
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:100'],
+            'content' => ['nullable', 'string', 'max:100'],
+            'price' => ['required', 'string'],
+
+        ]);
+        
+        return redirect()->route('admin.posts.show', $post);
     }
 
     
-    public function delete(){
-        return 'Сторінка видалення посту';
+    public function delete(Request $request, $post){
+        return redirect()->route('admin.posts.index', $post);
     }
     
     public function like(){

@@ -12,17 +12,18 @@
         </x-card-title>
 
         <x-slot name="right">
-            <a href="route('login')"> 
+            <a href="{{route('login')}}"> 
                 {{__('Вхід')}}
             </a>
         </x-slot>
     </x-card-header>
 
     <x-card-body>
+        <x-errors />
         <x-form action="{{route('register.store')}}" method="POST">
             <x-form-item>
-                <x-label required>{{__('Email')}}</x-label>
-                <x-input type="email" name="email" autofocus />
+                <x-label required>{{__('Username')}}</x-label>
+                <x-input type="username" name="username" autofocus />
             </x-form-item>
 
             <x-form-item>

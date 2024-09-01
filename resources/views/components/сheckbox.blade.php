@@ -1,9 +1,6 @@
-<div class="form-check">
-  <input type="checkbox" name="remember" value="1" class="form-check-input"  id="flexCheckDefault">
+@props(['name', 'checked' => false])
 
-  <label class="form-check-label" for="remember">
-
-    {{$slot}}
-    
-  </label>
-</div>
+<input type="checkbox" name="{{ $name }}" {{ $checked ? 'checked' : '' }} {{ $attributes->merge(['class' => 'form-check-input']) }}>
+<label {{ $attributes->merge(['class' => 'form-check-label']) }}>
+    {{ $slot }}
+</label>

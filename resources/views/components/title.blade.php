@@ -19,3 +19,20 @@
         @endisset
     </div>
 </div>
+
+<x-errors />
+
+{{-- use App\Models\Post;
+use App\Models\User;
+for ($i = 0; $i < 99; $i++){
+    Post::query()->create([
+        'user_id' => User::query()->value('id'),
+        'title' => fake()->word(),
+        'content' => fake()->sentence(),
+        'price' => fake()->numberBetween($min = 5, $max = 100),
+        'category_id' => fake()->numberBetween($min = 1, $max = 3),
+        'published' => true,
+        'created_at' => now(),
+        'image_path' => 'storage/image/background.png',
+        ]);
+    }    --}}

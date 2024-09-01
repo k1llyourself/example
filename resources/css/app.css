@@ -1,0 +1,46 @@
+/* resources/css/app.css */
+
+/* Стилі для заголовків */
+.post-title {
+    font-size: 24px; /* Збільшує розмір тексту */
+    font-weight: bold; /* Робить текст жирним */
+}
+
+.price {
+    font-size: 20px; /* Збільшує розмір тексту */
+    font-weight: bold; /* Робить текст жирним */
+}
+
+/* Стилі для карток */
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #FF0000;
+}
+
+.card-img-top {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: none;
+}
+
+/* Стилі для хедера */
+/* resources/css/app.css */
+
+
+
+

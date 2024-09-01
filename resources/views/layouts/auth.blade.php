@@ -1,5 +1,5 @@
 @extends('layouts.base')
-
+@include('includes.header')
 @section('content')
 
 <section>

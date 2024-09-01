@@ -5,25 +5,14 @@
 @section('auth.content')
 
 <x-card>
-    <x-card-header>
-        <x-card-title>
-            
-                {{ __('Вхід') }}
-            
-        </x-card-title>
-        <x-slot name="right">
-            <a href="route('register')"> 
-                {{__('Реєстрація')}}
-            </a>
-        </x-slot>
+    <h1 style="font-weight: bold; margin:20px 10px;">Вхід</h1>
 
-    </x-card-header>
-
-    <x-card-body>
+    <div class="card-body" style="margin: 10px 10px;">
+        <x-errors />
         <x-form action="{{route('login.store')}}" method="POST">
             <x-form-item>
-                <x-label required>{{__('Email')}}</x-label>
-                <x-input type="email" name="email" autofocus />
+                <x-label required>{{ __( 'Ім\'я користувача' ) }}</x-label>
+                <x-input type="text" name="username" value="{{ old('username')}}" autofocus />
             </x-form-item>
 
             <x-form-item>
@@ -31,22 +20,15 @@
                 <x-input type="password" name="password" />
             </x-form-item>
 
-            <x-form-item>
-                <x-checkbox name="remember">
-                    {{__("Запам'ятати мене")}}
-                </x-checkbox>
-
-            </x-form-item>
-            
-            <x-button type="submit">
-                {{__('Увійти')}}
-            </x-button>
-
-
-
+            <div class="empty-cart-message">
+                <x-button class="btn btn-success" type="submit">
+                    {{__('Увійти')}}
+                </x-button>
+            </div>
+           
 
         </x-form>
-    </x-card-body>
+    </div>
 </x-card>
 
 @endsection
